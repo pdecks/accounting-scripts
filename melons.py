@@ -22,18 +22,22 @@ melon_seedlessness = {
     5: False,
 }
 
-# make new outer dictionary by melon names
-melon_dict = {}
+# make new nested dictionary
+# outer dictionary
+# key = melon name; value = inner dictionary
+melons = {}
 for key in melon_names:
     melon_name = melon_names[key]
     melon_price = melon_prices[key]
     melon_seeds = melon_seedlessness[key]
     default = 'N/A'
-    melon_dict[melon_name] = {'price': melon_price,
-                              'seeds': melon_seeds,
-                              'flesh': default,
-                              'rind': default,
-                              'avg_wt': default}
+    # inner dictionary
+    # key = attribute name; value = attr value
+    melons[melon_name] = {'price': melon_price,
+                          'seeds': melon_seeds,
+                          'flesh': default,
+                          'rind': default,
+                          'avg_wt': default}
 
 #print melon_dict
 

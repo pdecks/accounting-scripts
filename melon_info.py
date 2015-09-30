@@ -1,30 +1,41 @@
 """
 Prints out all the melons in our inventory
 """
+# import the melons dictionary from melons.py
+# note: if we write "import melons" we would have to call melons.melons
+from melons import melons
 
-from melons import melon_dict
 
+def print_melon(melons):
+    """ Take melons dictionary and print out all melon information by melon name.
 
-def print_melon(melon_dict):
-    for melon in melon_dict:
-        name = melon
-        print "{}s have the following attributes:".format(name)
-        attributes = melon_dict[name].keys()
-        for prop in attributes:
-            if prop == 'seeds':
-                if melon_dict[name]['seeds'] is False:
-                    val = 'N'
+    Takes a dictionary where keys = melon names, values = attr dictionary.
+    Returns none.
+    """
+    for melon in melons:
+        # print keys of outer dictionary
+        print melon.upper()
+        # print values from inner dictionary
+        for attr, val in melons[melon].items():
+            # convert Boolean to useful information
+            if attr == 'seeds':
+                if val is False:
+                    print_val = 'seeded'
                 else:
-                    val = 'Y'
-                print "Seeded: {}".format(val)
+                    print_val = 'seedless'
+                print "Seeded: {}".format(print_val)
             else:
-                print "{}: {}".format(prop, melon_dict[name][prop])
+                print "{}: {}".format(attr, val)
         print
 
-    return  
+    return None
 
 
-print_melon(melon_dict)
+print_melon(melons)
+
+
+
+# THIS WAS FROM THE ORIGINAL FILE PROVIDED TO US
 # name = melon_dict
 # price = melon_dict[key][price]
 
